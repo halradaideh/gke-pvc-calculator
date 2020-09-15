@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: pv-usage-calculator-gcp
+  namespace: kube-system
+  labels:
+    k8s-app: pv-usage-calculator-gcp
+spec:
+  selector:
+    matchLabels:
+      name: pv-usage-calculator-gcp
+  template:
+    metadata:
+      labels:
+        name: pv-usage-calculator-gcp
+    spec:
+      serviceAccountName: calculator-account
+      containers:
+        - name: pv-usage-calculator-gcp
+          image: IMAGE:TAG
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DEBUG
+              value: "false"
+            - name: DISC_CALC_FREQ_SECONDS
+              value: "60"
+            - name: GCP_PROJECT
+              value: "scitrus"
+          resources:
+            limits:
+              cpu: 200m
+              memory: 100Mi
+            requests:
+              cpu: 100m
+              memory: 100Mi
+          volumeMounts:
+            - name: pvs-volume
+              mountPath: /kmounts
+              readOnly: true
+      terminationGracePeriodSeconds: 30
+      volumes:
+        - name: pvs-volume
+          hostPath:
+            # directory location on host
+            path: /var/lib/kubelet/plugins
+            # this field is optional
+            type: Directory
