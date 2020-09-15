@@ -26,7 +26,7 @@ spec:
             - name: DISC_CALC_FREQ_SECONDS
               value: "60"
             - name: GCP_PROJECT
-              value: "scitrus"
+              value: "PROJECT"
           resources:
             limits:
               cpu: 200m
