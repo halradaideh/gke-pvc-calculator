@@ -1,7 +1,7 @@
 FROM golang:alpine as builder
 WORKDIR /main
 RUN apk add --no-cache git
-COPY .. /main
+COPY . /main
 RUN CGO_ENABLED=0 GOOS=linux go build 
 
 FROM alpine:edge
