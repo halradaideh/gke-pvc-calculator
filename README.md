@@ -25,5 +25,4 @@ $ kubectl apply -f gke-daemonset.yaml
 todo :
 * remove hack from code
 * create helm deployment
-* push image to docker registry
 * 

@@ -17,7 +17,7 @@ spec:
       serviceAccountName: calculator-account
       containers:
         - name: pv-usage-calculator-gcp
-          image: IMAGE:TAG
+          image: mrelite/gke-calculator:latest
           ports:
             - containerPort: 8080
           env:
