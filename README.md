@@ -1,4 +1,4 @@
-# gke-pvc-calculator
+# GKE pvc Calculator
 
 This tool was created to export PVC statistics to GCP monitor as metrics, in order to create alerts and monitor disk usage.
 
@@ -12,8 +12,15 @@ $ docker build -t image:tag .
 
 notes:
 * please update the image on the deployment with the proper name and tag
-* please add GCP_PROJECT with the name of you project to watch
+* please add *GCP_PROJECT* with the name of you project to watch
 
+----
+to deploy, go to the deploy directory and apply the yaml files
+```bash
+$ kubectl apply -f rbac.yaml
+$ kubectl apply -f gke-daemonset.yaml
+
+```
 ----
 todo :
 * remove hack from code
