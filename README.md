@@ -26,3 +26,7 @@ todo :
 * remove hack from code
 * create helm deployment
 * 
+
+----
+
+Thanks to Harris Dimitriou.
