@@ -1,4 +1,4 @@
-# GKE pvc Calculator
+# GKE pvc Calculator / Doesn't work and is no longer supported.
 
 This tool was created to export PVC statistics to GCP monitor as metrics, in order to create alerts and monitor disk usage.
 
